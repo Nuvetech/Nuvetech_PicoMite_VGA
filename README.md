@@ -25,4 +25,5 @@ This project is released under the [GNU General Public License (GPL) version 3](
 
 ## Firmware
 
-Download the latest FW from (Geoff's Projects)[https://geoffg.net/picomitevga.html]
+Download the latest FW from [Geoff's Projects](https://geoffg.net/picomitevga.html)
+
