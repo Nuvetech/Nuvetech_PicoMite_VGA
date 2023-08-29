@@ -1,0 +1,75 @@
+Command: edit (Edits current loaded program)
+To quit, if F1 (followed by enter) doesn't work, use Ctrl+Q, and hit enter
+Use 'run' to run current program
+use a single quotation mark ' to name a program in the first line (Example: 'Test) - just the one mark
+I think the above is a comment
+Command: flash save 1 (saves the program into slot 1)
+Command: flash list (shows all program names)
+Command: flash load 2 (loads program saved in slot 2)
+Command: flash overwrite 3 (rewrites that location)
+Command: flash erase 2 (removes program 2)
+
+Command: Option Reset (resets all option settings to factory defaults, useful for if
+something doesn't want to be changed like "Audio already configured" error)
+Command: Option list (shows all option settings that have been changed from factory)
+
+'Example of a loop in MMBasic:
+Timer = 0
+DO WHILE Timer < 1000
+  PRINT Timer
+LOOP
+'This will print the timer value until the timer runs over 1000ms
+
+Command: Print Time$ (this will print out the current timestamp)
+Command: Time$ = "21:05" (This sets the clock to 5 minutes past 9pm)
+Command: Print MM.DEVICE$ (Prints version of the MMBasic running)
+
+Command: Option CPUSpeed 48000 (Sets the CPU clock speed to 48MHz)
+Command: Option Display 30,80 (Sets the display to 30 by 80 characters)
+
+Security:
+Command: Option PIN 0 (Remove passcode)
+Command: Option PIN 12345678 (Sets 12345678 as the passcode. Must be a non-zero number up to 8 digits)
+Note: setting a passcode will require entering this passcode whenever a 
+program tries to go back to the command prompt, or if you start a new serial
+connection.
+
+Command: Memory (shows memory usage)
+
+If a program is running, Ctrl+C then ENTER will kill it and return to the command prompt
+
+Visuals:
+Command: Option Colourcode ON (This turns on the colour coding in the terminal)
+Command: cls rgb(white) (To tune the colour of a VGA output, type "cls rgb(white)" and turn the pot until it
+comes out white. You can also do red or cyan or green etc.)
+Command: mode 1 (or mode 2, which makes it monochrome or colour)
+Command: Option default mode 2 (to keep it permanently in this mode)
+
+Input:
+Command: Option Keyboard UK (or US or whatever. Sets the default keyboard layout).
+
+Storage:
+Command: Option SDcard GP13, GP11, GP12, GP10 (Those are the default pins for SD Card)
+Command: Option SDcard Disable (Resets pins saved above)
+Command: files (shows files on SD Card)
+Command: load "blocks.bas" (loads a file from the SD card, after which you can use the
+edit command to look at it)
+Command: save "Test.bas" (Saves the current program as test.bas on the Current Working Directory)
+
+Audio:
+Command: Option Audio GP6, GP7 (Sets the gpio pins to be used for Audio output)
+Command: play tone 200,500,1500 (Plays constant tone, 200Hz in left ear, and 500 in right, 
+for 1500ms. Use Ctrl+C to stop)
+Command: Play Volume 20,70 (sets volume of left ear to 20%, and right ear 70%).
+Example audio program:
+play tone 350,350,200
+pause 200
+play tone 550,550,400
+pause 400
+
+
+Initial Setup (these are things I needed to change to get mine working):
+Command: Option Keyboard UK
+Command: Option SDcard GP13, GP11, GP12, GP10 (Those are the default pins for SD Card)
+
+
